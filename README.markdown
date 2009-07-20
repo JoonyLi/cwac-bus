@@ -35,6 +35,13 @@ Usage
 Full instructions for using this module are forthcoming. Stay
 tuned!
 
+Dependencies
+------------
+This project requires the [CWAC Task module][task]. A copy of
+a compatible JAR can be found in the `libs/` directory of
+the project, though you are welcome to try a newer one, or
+one that you have patched yourself.
+
 Version
 -------
 This is version 0.1 of this module, meaning it is pretty darn
