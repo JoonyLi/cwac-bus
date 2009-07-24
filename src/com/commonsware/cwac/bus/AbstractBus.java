@@ -31,6 +31,10 @@ abstract public class AbstractBus<M,F,S extends AbstractBus.Strategy> {
 	}
 	
 	public void send(M... messages) {
+		sendActual(messages);
+	}
+	
+	public void sendAsync(M... messages) {
 		new SendMessageTask().execute(messages);
 	}
 	
@@ -76,6 +80,16 @@ abstract public class AbstractBus<M,F,S extends AbstractBus.Strategy> {
 					else {
 						r.setQueue(q);
 					}
+				}
+			}
+		}
+	}
+	
+	private void sendActual(M... messages) {
+		for (M message : messages) {
+			for (Registration r : regs) {
+				synchronized(r) {
+					r.tryToSend(message);
 				}
 			}
 		}
@@ -143,13 +157,7 @@ abstract public class AbstractBus<M,F,S extends AbstractBus.Strategy> {
 	private class SendMessageTask extends AsyncTaskEx<M, Void, Void> {
 		@Override
 		protected Void doInBackground(M... messages) {
-			for (M message : messages) {
-				for (Registration r : regs) {
-					synchronized(r) {
-						r.tryToSend(message);
-					}
-				}
-			}
+			sendActual(messages);
 			
 			return(null);
 		}
