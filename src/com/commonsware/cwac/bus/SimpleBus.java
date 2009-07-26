@@ -38,7 +38,8 @@ public class SimpleBus
 	class IntentMatchStrategy
 		implements AbstractBus.Strategy<Bundle, String> {
 		public boolean isMatch(Bundle message, String filter) {
-			return(filter.equals(message.getString(KEY)));
+			return(filter!=null && message!=null &&
+						 filter.equals(message.getString(KEY)));
 		}
 	}
 }
