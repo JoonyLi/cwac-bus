@@ -1,6 +1,8 @@
 CWAC Bus: Services And Activities, Communicating
 ================================================
 
+**THIS PROJECT IS DISCONTINUED &mdash; USE AT YOUR OWN RISK**
+
 The CWAC Bus module implements an abstract framework, plus
 two concrete implementations, of a local message bus. The
 idea is that services and activities can communicate via
@@ -69,9 +71,6 @@ file.
 
 Questions
 ---------
-If you have questions regarding the use of this code, please
-join and ask them on the [cw-android Google Group][gg]. Be sure to
-indicate which CWAC module you have questions about.
+**THIS PROJECT IS UNSUPPORTED**
 
-[gg]: http://groups.google.com/group/cw-android
 [task]: http://github.com/commonsguy/cwac-task/tree/master
